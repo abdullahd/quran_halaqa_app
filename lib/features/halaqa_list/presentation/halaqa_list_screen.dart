@@ -43,38 +43,60 @@ class HalaqaListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String userName = 'أحمد محمد'; // يمكنك استبداله باسم المستخدم الفعلي
     return Scaffold(
       appBar: AppBar(
         title: const Text('حلقاتي'),
       ),
-      body: ListView.builder(
-        itemCount: _dummyHalaqat.length,
-        itemBuilder: (context, index) {
-          final halaqa = _dummyHalaqat[index];
-          return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundColor: const Color(0xFFD1C4E9), // Light lavender
-                child: const Icon(Icons.group,
-                    color: Color(0xFF7C4DFF)), // Deep violet
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: Text(
+              ' مرحباً، الشيخ $userName',
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF7C4DFF),
               ),
-              title: Text(halaqa.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              subtitle: Text('${halaqa.students.length} طلاب'),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // التنقل إلى شاشة الحضور عند الضغط
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AttendanceScreen(halaqa: halaqa),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _dummyHalaqat.length,
+              itemBuilder: (context, index) {
+                final halaqa = _dummyHalaqat[index];
+                return Card(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor:
+                          const Color(0xFFD1C4E9), // Light lavender
+                      child: const Icon(Icons.group,
+                          color: Color(0xFF7C4DFF)), // Deep violet
+                    ),
+                    title: Text(halaqa.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold)),
+                    subtitle: Text('${halaqa.students.length} طلاب'),
+                    trailing: const Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      // التنقل إلى شاشة الحضور عند الضغط
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              AttendanceScreen(halaqa: halaqa),
+                        ),
+                      );
+                    },
                   ),
                 );
               },
             ),
-          );
-        },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
