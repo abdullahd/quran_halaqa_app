@@ -55,10 +55,9 @@ class HalaqaListScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: ListTile(
               leading: CircleAvatar(
-                backgroundColor:
-                    const Color.fromARGB(255, 150, 173, 151), // Lighter green
+                backgroundColor: const Color(0xFFD1C4E9), // Light lavender
                 child: const Icon(Icons.group,
-                    color: Color.fromARGB(255, 11, 39, 22)), // Dark green
+                    color: Color(0xFF7C4DFF)), // Deep violet
               ),
               title: Text(halaqa.name,
                   style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -81,8 +80,8 @@ class HalaqaListScreen extends StatelessWidget {
         onPressed: () {
           // TODO: Implement add halaqa functionality
         },
-        backgroundColor: const Color.fromARGB(255, 192, 231, 194),
-        child: const Icon(Icons.add, color: Color.fromARGB(255, 31, 30, 30)),
+        backgroundColor: const Color(0xFF7C4DFF), // Violet main
+        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }

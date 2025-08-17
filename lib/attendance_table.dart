@@ -222,8 +222,14 @@ class _AttendanceTableState extends State<AttendanceTable> {
                           final fillColor = status == AttendanceStatus.none
                               ? Colors.transparent
                               : _getCircleColorForStatus(status);
+                          // Violet/purple based theme
+                          final borderColor = fillColor == Colors.transparent
+                              ? const Color(0xFFD1C4E9) // lavender border
+                              : Colors.transparent;
+                          final iconColor = fillColor == Colors.transparent
+                              ? const Color(0xFF7C4DFF) // deep violet for empty
+                              : Colors.white;
                           return Container(
-                            // Subtle background tint for the whole cell (based on status)
                             padding: const EdgeInsets.all(6),
                             decoration: BoxDecoration(
                               color: _getColorForStatus(status),
@@ -237,9 +243,7 @@ class _AttendanceTableState extends State<AttendanceTable> {
                                 color: fillColor,
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                  color: fillColor == Colors.transparent
-                                      ? Colors.grey.shade300
-                                      : Colors.transparent,
+                                  color: borderColor,
                                   width: 1,
                                 ),
                               ),

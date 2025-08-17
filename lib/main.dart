@@ -28,11 +28,11 @@ class QuranHalaqaApp extends StatelessWidget {
       // --- نهاية إعدادات اللغة العربية ---
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF14532D)), // تم تغيير اللون الرئيسي
+            seedColor: const Color(0xFF7C4DFF)), // violet/purple main
         textTheme: GoogleFonts.almaraiTextTheme(),
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF14532D), // Match primary
+          backgroundColor: Color(0xFF7C4DFF), // violet main
           foregroundColor: Colors.white,
         ),
       ),
